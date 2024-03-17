@@ -98,7 +98,7 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
             [
                 InlineKeyboardButton(text=_["S_B_7"], user_id=OWNER),
                 InlineKeyboardButton(
-                    text=_["S_B_6"], url=f"https://github.com/iamuput/NezukoMusic"
+                    text=_["S_B_6"], url=f"https://github.com/jaadisini/cillmusic"
                 ),
             ]
         )
@@ -107,7 +107,7 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
             buttons.append(
                 [
                     InlineKeyboardButton(
-                        text=_["S_B_6"], url=f"https://github.com/iamuput/NezukoMusic"
+                        text=_["S_B_6"], url=f"https://github.com/jaadisini/cillmusic"
                     ),
                 ]
             )
@@ -123,7 +123,7 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
         [
             InlineKeyboardButton(text=_["ST_B_6"], callback_data="LG"),
             InlineKeyboardButton(
-                text="Donate", url="https://telegra.ph//file/fff8a7d2f139def8d684c.jpg"
+                text="Donate", url="https://t.me/donatecill"
             ),
         ]
                   )

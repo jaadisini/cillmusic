@@ -4,7 +4,7 @@ from Auput import app
 from pyrogram.types import InputMediaPhoto
 
 
-@app.on_message(filters.command(["tgm" , "link"]))
+@app.on_message(filters.command(["tg" , "link"]))
 def ul(_, message):
     reply = message.reply_to_message
     if reply.media:

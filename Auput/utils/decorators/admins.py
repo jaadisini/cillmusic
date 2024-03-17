@@ -1,6 +1,9 @@
-from pyrogram.enums import ChatType
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
+from pyrogram.enums import ChatType, ChatMembersFilter
+from pyrogram.errors.exceptions.flood_420 import FloodWait
+from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
+from pyrogram import filters, enums
+from pyrogram.types import (CallbackQuery, ChatMemberUpdated, ChatPermissions, ChatPrivileges, Message, InlineKeyboardButton, InlineKeyboardMarkup
+)
 from config import adminlist
 from strings import get_string
 from Auput import app
@@ -167,3 +170,24 @@ def ActualAdminCB(mystic):
         return await mystic(client, CallbackQuery, _)
 
     return wrapper
+
+
+admins_in_chat = {}
+async def list_admins(chat_id: int):
+    global admins_in_chat
+    if chat_id in admins_in_chat:
+        interval = time() - admins_in_chat[chat_id]["last_updated_at"]
+        if interval < 3600:
+            return admins_in_chat[chat_id]["data"]
+
+    admins_in_chat[chat_id] = {
+        "last_updated_at": time(),
+        "data": [
+            member.user.id
+            async for member in app.get_chat_members(
+                chat_id, filter=ChatMembersFilter.ADMINISTRATORS
+            )
+        ],
+    }
+    return admins_in_chat[chat_id]["data"]
+

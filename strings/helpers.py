@@ -160,3 +160,9 @@ HELP_15 = """
 
 ⦿ /sg : To Check History Name.
 """
+
+HELP_16 = """
+<b><u>Tag all :</b></u>
+
+⦿ /all : To mention all member.
+"""

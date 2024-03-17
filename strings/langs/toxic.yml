@@ -19,7 +19,7 @@ call_2 : "Bot nya diblokir tolol! Coba lu cek asisstantnya diblok digroup ini to
 call_3 : "Kesalahan ya gblk! Coba lagi, atau engga tanya @iamuput Ni gua kasih alesannya.\n\n**Alasan**: {0}"
 call_4 : "Kasih Botnya Admin biar bisa ngundang asisstantnya tolol**Undang Pengguna Melalui Tautan** Izinin Botnya buat ngundang Asisstantnya tolol, Kalo ga gitu ya ga bisa diplay mmk!"
 call_5 : "Asisstant bakal gabung ke group ini, Tungguin dulu tolol!"
-call_6 : "Asisstant [{0}] Udah Berhasil Bergabung Tuh mek!.\n\nUdah bisa Musikan Sekarang, Makasih ke @iamuput tolol!"
+call_6 : "Asisstant [{0}] Udah Berhasil Bergabung Tuh mek!.\n\nUdah bisa Musikan Sekarang, tolol!"
 call_7 : "**Lu ngasih gua hak buat ban loh **\n\nMau apus **BAN PENGGUNA** dari bot ga?Ga ngaruh juga sih mek!."
 call_8 : "**Hak Admin yang Berbahaya Diberikan **\n\nHarap hapus hak **TAMBAHKAN ADMIN BARU** dari bot."
 call_9 : "**Gagal ganti lagu mek!**\nKetik /skip untuk Ganti Musik!."
@@ -76,7 +76,7 @@ admin_34 : "Gagal mencari aliran saat ini."
 
 # Start
 start_1 : "Makasih udah make gua di {0}.\n{1} Kalo patah patah terima aja jink lu gratisan, gausah protes!.\n\nbuat nyari bantuan apa aja, periksa Group sama channel ya jing!."
-start_2 : "Halo pengguna gratisan miskin, Nama Gua {0}.\n\nGua bot streaming telegram dengan fitur berguna. Gua bisa play dari Youtube, Spotify, Resso, AppleMusic , Soundcloud .\n\nJangan ngeluh ya anjing kalo patah patah, Lo cuma gratisan! Gasuka? Pc gua @iamuput , Yang ngeluh botnya patah patah, bikin bot sendiri aja memek!"
+start_2 : "Halo pengguna gratisan miskin, Nama Gua {0}.\n\nGua bot streaming telegram dengan fitur berguna. Gua bisa play dari Youtube, Spotify, Resso, AppleMusic , Soundcloud .\n\nJangan ngeluh ya anjing kalo patah patah, Lo cuma gratisan! Gasuka? , Yang ngeluh botnya patah patah, bikin bot sendiri aja memek!"
 start_3 : "Welcome jink {0}\n\nGua gabutuh **izin admin** Buat kerja ( sampe diminta ya jink ).\n\nNama Asisstant:- @{1}\nID Asisten:- {2} "
 start_4 : "Owner Ganteng gua {0}[{1}] baru aja gabung ke group ini, Sambut lah anjg!"
 start_5 : "Bawahannya owner {0}[{1}] baru aja gabung ke gc ini, sambut mek! "

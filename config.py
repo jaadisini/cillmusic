@@ -154,13 +154,10 @@ autoclean = []
 
 
 # Images
-START_IMG_URL = getenv(
-    "START_IMG_URL", "https://telegra.ph//file/768e52d46733806e6beee.jpg"
-)
-PING_IMG_URL = getenv(
-    "PING_IMG_URL", "https://telegra.ph//file/768e52d46733806e6beee.jpg"
-)
+START_IMG_URL = "https://telegra.ph//file/768e52d46733806e6beee.jpg"
+PING_IMG_URL = "https://telegra.ph//file/768e52d46733806e6beee.jpg"
 PLAYLIST_IMG_URL = "https://telegra.ph//file/768e52d46733806e6beee.jpg"
+GLOBAL_IMG_URL = "https://telegra.ph//file/768e52d46733806e6beee.jpg"
 STATS_IMG_URL = "https://telegra.ph//file/768e52d46733806e6beee.jpg"
 TELEGRAM_AUDIO_URL = "https://telegra.ph//file/768e52d46733806e6beee.jpg"
 TELEGRAM_VIDEO_URL = "https://telegra.ph//file/768e52d46733806e6beee.jpg"
@@ -170,6 +167,7 @@ YOUTUBE_IMG_URL = "https://telegra.ph//file/768e52d46733806e6beee.jpg"
 SPOTIFY_ARTIST_IMG_URL = "https://telegra.ph//file/768e52d46733806e6beee.jpg"
 SPOTIFY_ALBUM_IMG_URL = "https://telegra.ph//file/768e52d46733806e6beee.jpg"
 SPOTIFY_PLAYLIST_IMG_URL = "https://telegra.ph//file/768e52d46733806e6beee.jpg"
+
 
 
 def time_to_seconds(time):

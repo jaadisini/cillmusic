@@ -4,7 +4,8 @@ from traceback import format_exc as err
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from pyrogram.types import Message
 
-from Auput import SUDOERS, app
+from Auput import app
+from Auput.misc import SUDOERS
 from Auput.modules.admin import member_permissions
 
 

@@ -13,7 +13,7 @@ from Auput.utils.database.mongodatabase import (
     get_blacklisted_words,
     save_blacklist_filter,
 )
-from wbb.utils.filter_groups import blacklist_filters_group
+from Auput.utils.filter_group import blacklist_filters_group
 
 __MODULE__ = "Blacklist"
 __HELP__ = """
@@ -23,7 +23,7 @@ __HELP__ = """
 """
 
 
-@app.on_message(filters.command("blacklist") & ~filters.private)
+@app.on_message(filters.command("bl") & ~filters.private)
 @adminsOnly("can_restrict_members")
 async def save_filters(_, message):
     if len(message.command) < 2:
@@ -31,14 +31,14 @@ async def save_filters(_, message):
     word = message.text.split(None, 1)[1].strip()
     if not word:
         return await message.reply_text(
-            "**Usage**\n__/blacklist [WORD|SENTENCE]__"
+            "**Gunakan**\n__/bl [WORD|SENTENCE]__"
         )
     chat_id = message.chat.id
     await save_blacklist_filter(chat_id, word)
     await message.reply_text(f"__**Blacklisted {word}.**__")
 
 
-@app.on_message(filters.command("blacklisted") & ~filters.private)
+@app.on_message(filters.command("listbl") & ~filters.private)
 @capture_err
 async def get_filterss(_, message):
     data = await get_blacklisted_words(message.chat.id)
@@ -51,14 +51,14 @@ async def get_filterss(_, message):
         await message.reply_text(msg)
 
 
-@app.on_message(filters.command("whitelist") & ~filters.private)
+@app.on_message(filters.command("delbl") & ~filters.private)
 @adminsOnly("can_restrict_members")
 async def del_filter(_, message):
     if len(message.command) < 2:
-        return await message.reply_text("Usage:\n/whitelist [WORD|SENTENCE]")
+        return await message.reply_text("Gunakan:\n/whitelist [WORD|SENTENCE]")
     word = message.text.split(None, 1)[1].strip()
     if not word:
-        return await message.reply_text("Usage:\n/whitelist [WORD|SENTENCE]")
+        return await message.reply_text("Gunakan:\n/whitelist [WORD|SENTENCE]")
     chat_id = message.chat.id
     deleted = await delete_blacklist_filter(chat_id, word)
     if deleted:

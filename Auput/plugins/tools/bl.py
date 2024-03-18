@@ -16,13 +16,13 @@ from Auput.utils.database.mongodatabase import (
 )
 from Auput.utils.filter_group import blacklist_filters_group
 
-__MODULE__ = "Blacklist"
-__HELP__ = """
-/blacklisted - Get All The Blacklisted Words In The Chat.
-/blacklist [WORD|SENTENCE] - Blacklist A Word Or A Sentence.
-/whitelist [WORD|SENTENCE] - Whitelist A Word Or A Sentence.
-"""
-
+def get_arg(message: Message):
+    msg = message.text
+    msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
+    split = msg[1:].replace("\n", " \n").split(" ")
+    if " ".join(split[1:]).strip() == "":
+        return ""
+    return " ".join(split[1:])
 
 @app.on_message(filters.command("bl") & ~filters.private)
 @adminsOnly("can_restrict_members")

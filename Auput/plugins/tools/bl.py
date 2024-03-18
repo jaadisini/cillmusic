@@ -3,7 +3,7 @@ import html
 import re
 from time import time
 from datetime import datetime, timedelta
-
+from pyrogram.enums import ParseMode
 from pyrogram import filters
 from pyrogram.types import ChatPermissions, Message
 

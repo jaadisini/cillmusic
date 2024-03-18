@@ -24,7 +24,7 @@ def second_page(_):
 		[
 			[InlineKeyboardButton(text=_["H_B_10"], callback_data="help_callback hb10"), InlineKeyboardButton(text=_["H_B_11"], callback_data="help_callback hb11"),InlineKeyboardButton(text=_["H_B_12"], callback_data="help_callback hb12")],
 			[InlineKeyboardButton(text=_["H_B_13"], callback_data="help_callback hb13"), InlineKeyboardButton(text=_["H_B_14"], callback_data="help_callback hb14"),InlineKeyboardButton(text=_["H_B_15"], callback_data="help_callback hb15")],
-			[InlineKeyboardButton(text=_["H_B_9"], callback_data="help_callback hb9"), InlineKeyboardButton(text=_["H_B_16"], callback_data="help_callback hb16")],
+			[InlineKeyboardButton(text=_["H_B_9"], callback_data="help_callback hb9"), InlineKeyboardButton(text=_["H_B_16"], callback_data="help_callback hb16"), InlineKeyboardButton(text=_["H_B_17"], callback_data="help_callback hb17")],
 			controll_button,
 		]
 	)
@@ -116,6 +116,12 @@ def help_pannel(_, START: Union[bool, int] = None):
                 InlineKeyboardButton(
                     text=_["H_B_16"],
                     callback_data="help_callback hb16",
+                ),
+            ],
+		[
+                InlineKeyboardButton(
+                    text=_["H_B_17"],
+                    callback_data="help_callback hb17",
                 ),
             ],
             mark,

@@ -8,7 +8,7 @@ from Auput import SUDOERS, app
 from Auput.utils.decorators.errors import capture_err
 from Auput.utils.decorators.permissions import adminsOnly
 from Auput.utils.decorators.admins import list_admins
-from Auput.utils.dbfunctions import (
+from Auput.utils.database.mongodatabase import (
     delete_blacklist_filter,
     get_blacklisted_words,
     save_blacklist_filter,

@@ -4,7 +4,8 @@ from datetime import datetime, timedelta
 from pyrogram import filters
 from pyrogram.types import ChatPermissions
 
-from Auput import SUDOERS, app
+from Auput import app
+from Auput.misc import SUDOERS
 from Auput.utils.decorators.errors import capture_err
 from Auput.utils.decorators.permissions import adminsOnly
 from Auput.utils.decorators.admins import list_admins

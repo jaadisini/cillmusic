@@ -19,13 +19,7 @@ from Auput.utils.database.mongodatabase import (
 )
 from Auput.utils.filter_group import blacklist_filters_group
 
-def get_arg(message: Message):
-    msg = message.text
-    msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
-    split = msg[1:].replace("\n", " \n").split(" ")
-    if " ".join(split[1:]).strip() == "":
-        return ""
-    return " ".join(split[1:])
+
 
 @app.on_message(filters.command("bl") & ~filters.private)
 @adminsOnly("can_restrict_members")

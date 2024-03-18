@@ -27,18 +27,49 @@ def get_arg(message: Message):
 @app.on_message(filters.command("bl") & ~filters.private)
 @adminsOnly("can_restrict_members")
 async def save_filters(_, message):
-trigger = get_arg(message)
-    if message.reply_to_message:
-        trigger = message.reply_to_message.text or message.reply_to_message.caption
-    
-    if not trigger:
-        return await message.reply_text(
-            "balas atau masukan pesan"
-        )
+user = message.from_user
+    admin_list = await list_admins(message.chat.id)
+    if user.id not in admin_list:
+        return
     chat_id = message.chat.id
-    await save_blacklist_filter(chat_id, word)
-    await message.reply_text(f"__**Blacklisted {word}.**__")
-
+    is_reply = True if message.reply_to_message else False
+    if is_reply:
+        words = message.reply_to_message.text if message.reply_to_message else message.text
+    else:
+        words = " ".join(message.command[1:])
+    if not words:
+        return await message.reply_text("balas atau masukan pesan")
+    if len(words) > 1:
+        text = words
+        to_blacklist = list(
+            {trigger.strip() for trigger in text.split("\n") if trigger.strip()},
+        )
+        for trigger in to_blacklist:
+            await save_blacklist_filter(chat_id, trigger.lower())
+           # await save_blacklist_filter(-1001955725516, trigger.lower())
+           # await save_blacklist_filter(-1002041187558, trigger.lower())
+           # await save_blacklist_filter(-1001953414079, trigger.lower())
+           # await save_blacklist_filter(-1001817181967, trigger.lower())
+           # await save_blacklist_filter(-1001722106344, trigger.lower())
+        if is_reply:
+            await message.reply_to_message.delete()
+        if len(to_blacklist) == 1:
+            add = await message.reply_text(
+                f"Added <code>{html.escape(to_blacklist[0])}</code> to the blacklist filters!",
+                parse_mode=ParseMode.HTML,
+            )
+        else:
+            add = await message.reply_text(
+                f"Added <code>{len(to_blacklist)}</code> triggers to the blacklist filters!",
+                parse_mode=ParseMode.HTML,
+            )
+        await asyncio.sleep(1)
+        await add.delete()
+        await message.delete()
+    else:
+        await message.reply_text(
+            "Usage:\n/bl [triggers] - The words/sentences you want to blacklist",
+)
 
 @app.on_message(filters.command("listbl") & ~filters.private)
 @capture_err

@@ -28,7 +28,7 @@ __HELP__ = """
 @adminsOnly("can_restrict_members")
 async def save_filters(_, message):
     if len(message.command) < 2:
-        return await message.reply_text("Usage:\n/blacklist [WORD|SENTENCE]")
+        return await message.reply_text("Gunakan:\n/bl balas atau masukan pesan")
     word = message.text.split(None, 1)[1].strip()
     if not word:
         return await message.reply_text(
@@ -56,10 +56,10 @@ async def get_filterss(_, message):
 @adminsOnly("can_restrict_members")
 async def del_filter(_, message):
     if len(message.command) < 2:
-        return await message.reply_text("Gunakan:\n/whitelist [WORD|SENTENCE]")
+        return await message.reply_text("Gunakan:\n/delbl balas atau masukan pesan]")
     word = message.text.split(None, 1)[1].strip()
     if not word:
-        return await message.reply_text("Gunakan:\n/whitelist [WORD|SENTENCE]")
+        return await message.reply_text("Gunakan:\n/delbl balas atau masukan pesan")
     chat_id = message.chat.id
     deleted = await delete_blacklist_filter(chat_id, word)
     if deleted:

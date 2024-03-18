@@ -23,8 +23,8 @@ from Auput.utils.filter_group import blacklist_filters_group
 
 @app.on_message(filters.command("bl") & ~filters.private)
 @adminsOnly("can_restrict_members")
-async def save_filters(_, message):
-
+async def save_filters(_, message: Message):
+    user = message.from_user
     admin_list = await list_admins(message.chat.id)
     if user.id not in admin_list:
         return

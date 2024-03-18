@@ -116,15 +116,6 @@ async def blacklist_filters_re(_, message):
                 return
             try:
                 await message.delete()
-                await message.chat.restrict_member(
-                    user.id,
-                    ChatPermissions(),
-                    until_date=datetime.now() + timedelta(minutes=60),
-                )
-            except Exception:
+            except Exception as e:
+                print(e, "error in blacklist filter")
                 return
-            return await app.send_message(
-                chat_id,
-                f"Muted {user.mention} [`{user.id}`] for 1 hour "
-                + f"due to a blacklist match on {word}.",
-            )

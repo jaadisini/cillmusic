@@ -166,3 +166,11 @@ HELP_16 = """
 
 ⦿ /all : To mention all member.
 """
+
+HELP_17 = """
+<b><u>Bl Gcast :</b></u>
+
+⦿ /bl : untuk memasukan kata ke dlm blacklist
+⦿ /delbl : untuk menghapus kata dari blacklist
+⦿ /listbl : untuk melihat daftar kata blacklist
+"""

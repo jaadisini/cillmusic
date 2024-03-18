@@ -6,7 +6,7 @@ from pyrogram.types import Message
 
 from Auput import app
 from Auput.misc import SUDOERS
-from Auput.modules.admin import member_permissions
+from Auput.utils.decorators.admins import member_permissions
 
 
 async def authorised(func, subFunc2, client, message, *args, **kwargs):

@@ -192,7 +192,7 @@ async def list_admins(chat_id: int):
     return admins_in_chat[chat_id]["data"]
 
 
-async def member_permissions(chat_id: int, user_id: int):
+#async def member_permissions(chat_id: int, user_id: int):
     perms = []
     member = (await app.get_chat_member(chat_id, user_id)).privileges
     if not member:

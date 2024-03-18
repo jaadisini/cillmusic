@@ -27,12 +27,13 @@ __HELP__ = """
 @app.on_message(filters.command("bl") & ~filters.private)
 @adminsOnly("can_restrict_members")
 async def save_filters(_, message):
-    if len(message.command) < 2:
-        return await message.reply_text("Gunakan:\n/bl balas atau masukan pesan")
-    word = message.text.split(None, 1)[1].strip()
-    if not word:
+trigger = get_arg(message)
+    if message.reply_to_message:
+        trigger = message.reply_to_message.text or message.reply_to_message.caption
+    
+    if not trigger:
         return await message.reply_text(
-            "**Gunakan**\n__/bl [WORD|SENTENCE]__"
+            "balas atau masukan pesan"
         )
     chat_id = message.chat.id
     await save_blacklist_filter(chat_id, word)

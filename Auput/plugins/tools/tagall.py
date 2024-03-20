@@ -7,6 +7,7 @@ from time import time
 from pyrogram import filters, Client
 from pyrogram.enums import ParseMode
 from pyrogram.types import ChatPermissions, Message
+from pyrogram.errors import FloodWait, UserNotParticipant
 
 from Auput import app
 from Auput.misc import SUDOERS, db
@@ -15,51 +16,74 @@ from Auput.misc import SUDOERS, db
 from Auput.utils.decorators.admins import list_admins
 
 
-tagallgcid = []
+STATUS = enums.ChatMemberStatus
+spam_chats = []
+emoji = "😀 😃 😄 😁 😆 😅 😂 🤣 😭 😗 😙 😚 😘 🥰 😍 🤩 🥳 🤗 🙃 🙂 ☺️ 😊 😏 😌 😉 🤭 😶 😐 😑 😔 😋 😛 😝 😜 🤪 🤔 🤨 🧐 🙄 😒 😤 😠 🤬 ☹️ 🙁 😕 😟 🥺 😳 😬 🤐 🤫 😰 😨 😧 😦 😮 😯 😲 😱 🤯 😢 😥 😓 😞 😖 😣 😩 😫 🤤 🥱 😴 😪 🌛 🌜 🌚 🌝 🎲 🧩 ♟ 🎯 🎳 🎭💕 💞 💓 💗 💖 ❤️‍🔥 💔 🤎 🤍 🖤 ❤️ 🧡 💛 💚 💙 💜 💘 💝 🐵 🦁 🐯 🐱 🐶 🐺 🐻 🐨 🐼 🐹 🐭 🐰 🦊 🦝 🐮 🐷 🐽 🐗 🦓 🦄 🐴 🐸 🐲 🦎 🐉 🦖 🦕 🐢 🐊 🐍 🐁 🐀 🐇 🐈 🐩 🐕 🦮 🐕‍🦺 🐅 🐆 🐎 🐖 🐄 🐂 🐃 🐏 🐑 🐐 🦌 🦙 🦥 🦘 🐘 🦏 🦛 🦒 🐒 🦍 🦧 🐪 🐫 🐿️ 🦨 🦡 🦔 🦦 🦇 🐓 🐔 🐣 🐤 🐥 🐦 🦉 🦅 🦜 🕊️ 🦢 🦩 🦚 🦃 🦆 🐧 🦈 🐬 🐋 🐳 🐟 🐠 🐡 🦐 🦞 🦀 🦑 🐙 🦪 🦂 🕷️ 🦋 🐞 🐝 🦟 🦗 🐜 🐌 🐚 🕸️ 🐛 🐾 🌞 🤢 🤮 🤧 🤒 🍓 🍒 🍎 🍉 🍑 🍊 🥭 🍍 🍌 🌶 🍇 🥝 🍐 🍏 🍈 🍋 🍄 🥕 🍠 🧅 🌽 🥦 🥒 🥬 🥑 🥯 🥖 🥐 🍞 🥜 🌰 🥔 🧄 🍆 🧇 🥞 🥚 🧀 🥓 🥩 🍗 🍖 🥙 🌯 🌮 🍕 🍟 🥨 🥪 🌭 🍔 🧆 🥘 🍝 🥫 🥣 🥗 🍲 🍛 🍜 🍢 🥟 🍱 🍚 🥡 🍤 🍣 🦞 🦪 🍘 🍡 🥠 🥮 🍧 🍨".split(
+    " "
+)
 
+def get_arg(message: Message):
+    msg = message.text
+    msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
+    split = msg[1:].replace("\n", " \n").split(" ")
+    if " ".join(split[1:]).strip() == "":
+        return ""
+    return " ".join(split[1:])
 
-@app.on_message(filters.command("all", "/") & filters.group)
-#@AdminRightsCheck
-async def on_tagall_handler_cmd(client, message: Message):
-    if message.from_user.id not in (await list_admins(message.chat.id)):
-        return
-    if message.chat.id in tagallgcid:
-        return await message.reply_text("sedang ada perintah: <code>all</code> yang digunakan")
-    tagallgcid.append(message.chat.id)
-    text = message.text.split(None, 1)[1] if len(message.text.split()) != 1 else ""
-    m = message.reply_to_message or message
-    users = []
-    async for member in message.chat.get_members():
-        if (member.user.is_bot or member.user.is_deleted):
-            continue
-        users.append(member.user.mention)
-        if message.chat.id not in tagallgcid:
+async def isAdmin(filter, client, update):
+    try:
+        member = await client.get_chat_member(chat_id=update.chat.id, user_id=update.from_user.id)
+    except FloodWait as wait_err:
+        await sleep(wait_err.value)
+    except UserNotParticipant:
+        return False
+    except:
+        return False
+
+    return member.status in [STATUS.OWNER, STATUS.ADMINISTRATOR]
+
+Admin = filters.create(isAdmin)
+
+@Bot.on_message(filters.command("all") & filters.group & Admin)
+async def tagall(client, message: Message):
+    await message.delete()
+    chat_id = message.chat.id
+    args = get_arg(message)
+    if not args:
+        args = "Hi!"
+    spam_chats.append(chat_id)
+    usrnum = 0
+    usrtxt = ""
+    m = client.get_chat_members(chat_id)
+    async for usr in m:
+        if not chat_id in spam_chats:
             break
-        if len(users) < 5:
-            continue
-        await asyncio.sleep(1.5)
-        await m.reply_text(
-            ", ".join(users) + "\n\n" + text, quote=bool(message.reply_to_message)
-        )
-        users.clear()
+        usrnum += 1
+        usrtxt += f"[{random.choice(emoji)}](tg://user?id={usr.user.id}) "
+        if usrnum == 5:
+            txt = f"**{args}**\n\n{usrtxt}"
+            try:
+                await client.send_message(chat_id, txt)
+            except FloodWait as e:
+                await sleep(e.value)
+                await client.send_message(chat_id, txt)
+
+            await sleep(2)
+            usrnum = 0
+            usrtxt = ""
     try:
-        tagallgcid.remove(message.chat.id)
-    except Exception:
+        await client.send_message(chat_id, "**Proses Tag All selesai.")
+        spam_chats.remove(chat_id)
+    except:
         pass
 
-
-
-@app.on_message(filters.command("cancel", "/") & filters.group)
-#@AdminRightsCheck
-async def on_stop_tag_handler(c: Client, m: Message):
-    if m.from_user.id not in (await list_admins(m.chat.id)):
-        return
-    if m.chat.id not in tagallgcid:
-        return await m.reply_text(
-            "sedang tidak ada perintah: <code>all</code> yang digunakan"
-        )
-    try:
-        tagallgcid.remove(m.chat.id)
-    except Exception:
-        pass
-    await m.reply_text("ok tagall berhasil dibatalkan")
+@Bot.on_message(filters.command("cancel") & filters.group & Admin)
+async def untag(client, message: Message):
+    if not message.chat.id in spam_chats:
+        return await message.reply("**Sepertinya tidak ada tagall disini.**")
+    else:
+        try:
+            spam_chats.remove(message.chat.id)
+        except:
+            pass
+        return await message.reply("**Proses Tag All berhenti..**")

@@ -5,7 +5,7 @@ from random import shuffle
 from time import time
 
 from pyrogram import filters, Client
-from pyrogram.enums import ParseMode
+from pyrogram.enums import *
 from pyrogram.types import ChatPermissions, Message
 from pyrogram.errors import FloodWait, UserNotParticipant
 

@@ -8,16 +8,16 @@ from pyrogram import filters
 load_dotenv()
 
 # Get it from my.telegram.org
-API_ID = int(getenv("API_ID", "25639252"))
-API_HASH = getenv("API_HASH", "42db0fd56c51ff2b94cf064838eba7c1")
+API_ID = int(getenv("API_ID", "27210626"))
+API_HASH = getenv("API_HASH", "c9f8d32106fcb4dd5a762373b26b055d")
 
 ## Get it from @Botfather in Telegram.
-BOT_TOKEN = getenv("BOT_TOKEN", "6956372908:AAGVq1qX8mbjNGolU0Fa2MsLGLcEu2U-8Y4")
+BOT_TOKEN = getenv("BOT_TOKEN", "7098894492:AAFUxwqXZ_PSfisuy1LpcqUu0jczIBoCglA")
 
 # Add Owner Username without @ 
-OWNER_USERNAME = getenv("OWNER_USERNAME", "jaahilang")
+OWNER_USERNAME = getenv("OWNER_USERNAME", "jaadisini")
 # Get Your bot username
-BOT_USERNAME = getenv("BOT_USERNAME" , "cillmusikbot")
+BOT_USERNAME = getenv("BOT_USERNAME" , "cill dj")
 
 # Database to save your chats and stats... Get MongoDB:-  https://telegra.ph/How-To-get-Mongodb-URI-04-06
 MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://erkbwrs084:909090@cluster0.qdrfgmb.mongodb.net/?retryWrites=true&w=majority")
@@ -33,14 +33,14 @@ SONG_DOWNLOAD_DURATION = int(
 )  # Remember to give value in Minutes
 
 # You'll need a Private Group ID for this.
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002146931876"))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002074766929"))
 
 # A name for your Music bot.
 MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "cill x music" )
 
 # Your User ID.
 OWNER_ID = list(
-    map(int, getenv("OWNER_ID", "5061180769").split())
+    map(int, getenv("OWNER_ID", "5506319518").split())
 )  # Input type must be interger
 
 # Get it from http://dashboard.heroku.com/account
@@ -61,7 +61,7 @@ GIT_TOKEN = getenv("GIT_TOKEN", None)
 
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/stayheresay")
+    "SUPPORT_CHANNEL", "https://t.me/ID0ntcare4yu")
 SUPPORT_GROUP = getenv(
     "SUPPORT_GROUP", "https://t.me/cillsupport")
 

@@ -8,14 +8,14 @@ from pyrogram import filters
 load_dotenv()
 
 # Get it from my.telegram.org
-API_ID = int(getenv("API_ID", "27210626"))
-API_HASH = getenv("API_HASH", "c9f8d32106fcb4dd5a762373b26b055d")
+API_ID = int(getenv("API_ID", "23770828"))
+API_HASH = getenv("API_HASH", "2d3e87f244740e5c8286591940e24cd4")
 
 ## Get it from @Botfather in Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN", "7098894492:AAFUxwqXZ_PSfisuy1LpcqUu0jczIBoCglA")
 
 # Add Owner Username without @ 
-OWNER_USERNAME = getenv("OWNER_USERNAME", "jaadisini")
+OWNER_USERNAME = getenv("OWNER_USERNAME", "@tachobanan")
 # Get Your bot username
 BOT_USERNAME = getenv("BOT_USERNAME" , "cill dj")
 
@@ -40,7 +40,7 @@ MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "cill x music" )
 
 # Your User ID.
 OWNER_ID = list(
-    map(int, getenv("OWNER_ID", "5506319518").split())
+    map(int, getenv("OWNER_ID", "7149602071").split())
 )  # Input type must be interger
 
 # Get it from http://dashboard.heroku.com/account

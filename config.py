@@ -15,7 +15,7 @@ API_HASH = getenv("API_HASH", "2d3e87f244740e5c8286591940e24cd4")
 BOT_TOKEN = getenv("BOT_TOKEN", "7098894492:AAFUxwqXZ_PSfisuy1LpcqUu0jczIBoCglA")
 
 # Add Owner Username without @ 
-OWNER_USERNAME = getenv("OWNER_USERNAME", "@tachobanan")
+OWNER_USERNAME = getenv("OWNER_USERNAME", None)
 # Get Your bot username
 BOT_USERNAME = getenv("BOT_USERNAME" , "cill dj")
 

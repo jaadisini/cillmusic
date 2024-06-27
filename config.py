@@ -12,7 +12,7 @@ API_ID = int(getenv("API_ID", "23770828"))
 API_HASH = getenv("API_HASH", "2d3e87f244740e5c8286591940e24cd4")
 
 ## Get it from @Botfather in Telegram.
-BOT_TOKEN = getenv("BOT_TOKEN", "7098894492:AAFUxwqXZ_PSfisuy1LpcqUu0jczIBoCglA")
+BOT_TOKEN = getenv("BOT_TOKEN", "7466623673:AAGHzbvQf0-YzuAxg27hzVRT8XkIvzTKIHc")
 
 # Add Owner Username without @ 
 OWNER_USERNAME = getenv("OWNER_USERNAME", None)

@@ -33,7 +33,7 @@ SONG_DOWNLOAD_DURATION = int(
 )  # Remember to give value in Minutes
 
 # You'll need a Private Group ID for this.
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002186872355"))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002218137420"))
 
 # A name for your Music bot.
 MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "cill x music" )
@@ -61,7 +61,7 @@ GIT_TOKEN = getenv("GIT_TOKEN", None)
 
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/ID0ntcare4yu")
+    "SUPPORT_CHANNEL", "https://t.me/thebrazzernew")
 SUPPORT_GROUP = getenv(
     "SUPPORT_GROUP", "https://t.me/cillsupport")
 
@@ -133,7 +133,7 @@ TG_VIDEO_FILESIZE_LIMIT = int(
 SET_CMDS = getenv("SET_CMDS", False)
 
 # You'll need a PyrogramV2 String Session for these vars.
-STRING1 = getenv("STRING_SESSION", "BQGHOVQAUfHEKgcxxY2DYWyJ89aGAYqmXIqde5AxqzAQksg9txK5IKU7fw9fdb5IJISZ8Y518cmS1UNlQ4KSgVfSzDaOkxEerPwbqQwt-wLnjcV0BEWNFFUpRM5xcPOap31n5gdTtEMvf26_G3y8cCwDzjHz5uAlq7TuMDsdYWF4iOqqGXD3HY8p1eOm0v_Y41Nq249NugJEzKkO3sFHfBC_9s-M4td_lT-wBgGkqYYMCoTbQFn7emPdPOLGRE8N0t3lfdxcLJfRqjLGmfb97fqNh1tzxqqxAUMeQfZkt43_nHAz7kTe9nZYyfJWqtyiklF7xHkojRm1eoreIfQA5J9S5pvjvgAAAAA3v5y-AA")
+STRING1 = getenv("STRING_SESSION", "BQFqtswAkho6b7U1syfHClHahfeY2OGIpzeAG02VjNNDRZA0WaGbK5qLoy-Eu43dR_IsEhi6UkLF-YStuGAZBPoxe8BD2H9rGCuXSLMYEOwF2LZSPCQGamReDkOWT1Bt1W-Py3T1MGMr5BnD6DBl5xXod-BKWBLYtwLKXSUnimmKeO5-778jH2cXj2xe9d2s5Seq_ALuRBfnxkMmVsp1g_MgixZ3iYSb0yFWO-AS1IIjvmB5pXX7RYS5gV5QZoLf36_ufCAGXu3MnuIbBC6vzk1BVEqm7VXg4HsgGIKAe6APE_ZxdU9fCjnP8ObmSsBoZE1U8ldInNPecvW8frwy0oHxzR_9NwAAAABjS_N9AA")
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)

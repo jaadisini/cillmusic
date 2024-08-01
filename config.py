@@ -8,19 +8,19 @@ from pyrogram import filters
 load_dotenv()
 
 # Get it from my.telegram.org
-API_ID = int(getenv("API_ID", "23770828"))
-API_HASH = getenv("API_HASH", "2d3e87f244740e5c8286591940e24cd4")
+API_ID = int(getenv("API_ID", "26917284"))
+API_HASH = getenv("API_HASH", "e89fc9ea865e7494f742dab7132d28f9")
 
 ## Get it from @Botfather in Telegram.
-BOT_TOKEN = getenv("BOT_TOKEN", "7414737614:AAEEkNRv2LH2yXR5RXG21hgmYoDkL7PFlrM")
+BOT_TOKEN = getenv("BOT_TOKEN", "7250836835:AAGWmAAeQn4bhTbuMW1RhGHc9nCVS6_rXUQ")
 
 # Add Owner Username without @ 
-OWNER_USERNAME = getenv("OWNER_USERNAME", None)
+OWNER_USERNAME = getenv("OWNER_USERNAME", Dza4yu)
 # Get Your bot username
-BOT_USERNAME = getenv("BOT_USERNAME" , "cill dj")
+BOT_USERNAME = getenv("BOT_USERNAME" , "Dzamusikbot")
 
 # Database to save your chats and stats... Get MongoDB:-  https://telegra.ph/How-To-get-Mongodb-URI-04-06
-MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://erkbwrs084:909090@cluster0.qdrfgmb.mongodb.net/?retryWrites=true&w=majority")
+MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://jembutan1:1234@cluster0.w186hoa.mongodb.net/?retryWrites=true&w=majority)
 
 # Custom max audio(music) duration for voice chat. set DURATION_LIMIT in variables with your own time(mins), Default to 60 mins.
 DURATION_LIMIT_MIN = int(
@@ -33,14 +33,14 @@ SONG_DOWNLOAD_DURATION = int(
 )  # Remember to give value in Minutes
 
 # You'll need a Private Group ID for this.
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002070417836"))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002149981793"))
 
 # A name for your Music bot.
-MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "cill x music" )
+MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "𝗗𝘇𝗮 ✘ 𝗠𝗨𝗦𝗜𝗖" )
 
 # Your User ID.
 OWNER_ID = list(
-    map(int, getenv("OWNER_ID", "7149602071").split())
+    map(int, getenv("OWNER_ID", "1543559565").split())
 )  # Input type must be interger
 
 # Get it from http://dashboard.heroku.com/account
@@ -61,9 +61,9 @@ GIT_TOKEN = getenv("GIT_TOKEN", None)
 
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/speakupable")
+    "SUPPORT_CHANNEL", "https://t.me/zeropercentdza")
 SUPPORT_GROUP = getenv(
-    "SUPPORT_GROUP", "https://t.me/cillsupport")
+    "SUPPORT_GROUP", "https://t.me/DzaSupport")
 
 # Set it in True if you want to leave your assistant after a certain amount of time. [Set time via AUTO_LEAVE_ASSISTANT_TIME]
 AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", False))
@@ -133,7 +133,7 @@ TG_VIDEO_FILESIZE_LIMIT = int(
 SET_CMDS = getenv("SET_CMDS", False)
 
 # You'll need a PyrogramV2 String Session for these vars.
-STRING1 = getenv("STRING_SESSION", "BQFqtswALT6P4wKSSupEjQ5vkJgyLIm3cxUX5C8ylaiFty366e69Vwe4L1nePxL5ov60NB86pcTCFzCmJMXSJ7V3Ma17wnuuJI_n-nBK1b8TvSa8B8-tULut8_v63vQgh3NHuBZMhi7Rw-ytwM1PPBGGTADkehDTA73LI1KaNblWaAVIQZz12s7COqL_rPJzvGWLRtkccp-byPXW6J26liWkcIefGiImPcqoSW6b4fbmcfcsPPTfyw52x1nows7Lhzasx3z0M_ZofICzqzn4S2nhAy1JekmUoCIx7EpTkOaGkZa9yS0IXbvXFoWH2MtdN4HKqidGFRpk392jbmjqoG5ZAlR3xAAAAABpoUtSAA")
+STRING1 = getenv("STRING_SESSION", "BQHHpwsAtvgB-qU7FMotcXVrSpOHLLUGe62cfmnaZ2Nsa3v3pcOScuHjOF5iS2gmSbEqpvizivjcNp0YQpJ1F64WWfkahHZLNTY4rz8ZeFDunXmZGpRaw8zmIDrmN9eYlDV_RisEPM_3Pz3IaszXa3bVpdDVeHeoDrc2-d3Tua5RKehuFN06sDTqgG4ueDVlvI8wXnEcR_u73NdJ7o-Amq9xLsV6Uxlk1b38LINmaVmoWan6LGxbWi6l7gvgSshsRtzyrAp_6KoKJ9i9OEqBot_EdYgCJJ8eRkMb9ava1AMzsakwzFkrKR2USFGicASt30lwF8IUS_mvOBcjH0O30NjNZcLqCgAAAABpoUtSAA")
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
